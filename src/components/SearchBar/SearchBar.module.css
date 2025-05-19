@@ -1,0 +1,118 @@
+.form {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 84px;
+  margin-bottom: 56px;
+}
+label {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--gray);
+}
+.form_item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+.form_field {
+  background-color: var(--inputs);
+  border-radius: 12px;
+  padding: 10px 16px;
+  width: 196px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+}
+.form_field_chevron {
+  position: absolute;
+  top: 36px;
+  right: 16px;
+  pointer-events: none;
+}
+.form_field_brand {
+  position: absolute;
+  top: 28px;
+  left: 16px;
+  z-index: 10;
+  padding: 6px;
+  background-color: var(--inputs);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+  pointer-events: none;
+}
+.form_field option {
+  border: 1px solid var(--inputs);
+  border-radius: 12px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--gray);
+}
+
+.form_field::-webkit-scrollbar {
+  background-color: var(--inputs);
+  width: 8px;
+}
+.form_field::-webkit-scrollbar-thumb {
+  background-color: var(--gray);
+  border-radius: 8px;
+}
+
+.form_field_error {
+  position: absolute;
+  color: brown;
+  top: -6px;
+  right: 8px;
+}
+.form_item_mileage {
+  display: flex;
+  position: relative;
+}
+.form_item_mileage_from {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+}
+.form_item_mileage_to {
+  position: absolute;
+  top: 10px;
+  left: 212px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+}
+.form_field_error_mileage {
+  position: absolute;
+  color: brown;
+  top: -30px;
+  right: 8px;
+}
+.form_field_mileage {
+  padding-left: 58px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-right: 1px solid var(--gray-light);
+}
+.form_field_secondmileage {
+  padding-left: 38px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}

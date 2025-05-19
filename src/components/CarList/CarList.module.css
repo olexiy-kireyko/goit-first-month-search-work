@@ -1,0 +1,19 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px 32px;
+  padding: 0 120px;
+  justify-content: center;
+
+  margin-bottom: 40px;
+}
+
+.notfound {
+  text-align: center;
+  height: 62vh;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+}

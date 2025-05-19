@@ -1,14 +1,37 @@
+@font-face {
+  font-family: 'Manrope';
+  src: url(/manrope.ttf) format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url(/inter.ttf) format('truetype');
+  font-weight: 400 500;
+  font-style: normal;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family: 'Manrope', sans-serif;
+  --second-family: 'Inter', sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
   color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --white: #ffffff;
+  --inputs: #f7f7f7;
+  --badges: #f2f4f7;
+  --gray-light: #dadde1;
+  --button-hover: #0b44cd;
+  --button: #3470ff;
+  --gray: #8e929a;
+  --main: #101828;
+  background-color: var(--white);
 }
 
 /***
@@ -40,6 +63,7 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  overflow-x: hidden;
 }
 
 /* Reapply the pointer cursor for anchor tags */
@@ -108,7 +132,7 @@ meter {
 /* revert for bug in Chromium browsers
    - fix for the content editable attribute will work properly.
    - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
-:where([contenteditable]:not([contenteditable="false"])) {
+:where([contenteditable]:not([contenteditable='false'])) {
   -moz-user-modify: read-write;
   -webkit-user-modify: read-write;
   overflow-wrap: break-word;
@@ -117,6 +141,6 @@ meter {
 }
 
 /* apply back the draggable feature - exist only in Chromium and Safari */
-:where([draggable="true"]) {
+:where([draggable='true']) {
   -webkit-user-drag: element;
 }

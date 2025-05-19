@@ -1,18 +1,39 @@
-.navigation {
-  background-color: aqua;
+.header {
+  background-color: var(--badges);
+  padding: 24px 120px;
   display: flex;
-  gap: 20px;
-  padding: 20px 30px;
+  justify-content: space-between;
+}
+
+.navigation {
+  display: flex;
+  gap: 32px;
 }
 
 .navigation_link {
+  font-family: var(--font-family);
   font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
+  color: var(--main);
 }
 
 .navigation_link:hover {
-  text-shadow: 1px 2px 2px;
+  color: var(--button-hover);
 }
 
 .active {
-  color: chocolate;
+  color: var(--button-hover);
+}
+
+.logo {
+  font-family: var(--font-family);
+  color: var(--main);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.logo_span {
+  color: var(--button);
 }

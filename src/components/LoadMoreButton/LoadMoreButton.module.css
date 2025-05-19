@@ -1,0 +1,18 @@
+.button {
+  border: 1px solid var(--button);
+  border-radius: 12px;
+  padding: 12px 51px;
+  height: 44px;
+
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+  display: block;
+  margin: 80px auto 24px;
+  cursor: pointer;
+}
+.button:hover {
+  border: 1px solid var(--button-hover);
+}

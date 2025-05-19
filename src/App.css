@@ -1,4 +1,69 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
+}
+
+h1 {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 120%;
+  text-align: center;
+  color: var(--white);
+}
+
+h2 {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  text-align: center;
+  color: var(--white);
+}
+
+div.react-datepicker {
+  border-color: var(--button);
+  font-family: var(--second-family);
+}
+
+div.react-datepicker-wrapper {
+  max-width: 640px;
+  min-width: 100%;
+}
+
+input.react-datepicker__input-container {
+  max-width: 640px;
+  min-width: 100%;
+}
+
+.react-datepicker__month-container .react-datepicker__header {
+  background-color: var(--white);
+  border-color: var(--button);
+}
+
+span.react-datepicker__navigation-icon::before {
+  border-color: var(--button);
+}
+
+div.react-datepicker__day-name,
+div.react-datepicker__day--outside-month {
+  color: var(--gray);
+}
+
+div.react-datepicker__day:not([aria-disabled='true']):hover,
+div.react-datepicker__day--selected {
+  border-radius: 16px;
+  background-color: var(--button);
+}
+
+.react-datepicker-popper svg.react-datepicker__triangle {
+  stroke: var(--button);
+}
+
+.react-datepicker__current-month {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  text-align: center;
+  color: var(--main);
 }
