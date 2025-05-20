@@ -36,6 +36,7 @@ label {
   right: 16px;
   pointer-events: none;
 }
+
 .form_field_brand {
   position: absolute;
   top: 28px;
@@ -115,4 +116,10 @@ label {
   padding-left: 38px;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+}
+input[type='number'].form_field_mileage::-webkit-inner-spin-button,
+input[type='number'].form_field_secondmileage::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

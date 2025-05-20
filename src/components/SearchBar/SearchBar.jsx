@@ -92,13 +92,23 @@ export default function SearchBar() {
           {!checkBrand && (
             <span className={s.form_field_brand}>Choose a brand</span>
           )}
-          <img
-            src="/chevron-down.svg"
-            alt="down"
-            width="16"
-            height="16"
-            className={s.form_field_chevron}
-          />
+          {checkBrand ? (
+            <img
+              src="/chevron-down.svg"
+              alt="down"
+              width="16"
+              height="16"
+              className={s.form_field_chevron}
+            />
+          ) : (
+            <img
+              src="/chevron-up.svg"
+              alt="down"
+              width="16"
+              height="16"
+              className={s.form_field_chevron}
+            />
+          )}
         </div>
 
         <div className={s.form_item}>
@@ -116,17 +126,26 @@ export default function SearchBar() {
               </option>
             ))}
           </Field>
-
           {!checkPrice && (
             <span className={s.form_field_brand}>Choose a price</span>
           )}
-          <img
-            src="/chevron-down.svg"
-            alt="down"
-            width="16"
-            height="16"
-            className={s.form_field_chevron}
-          />
+          {checkPrice ? (
+            <img
+              src="/chevron-down.svg"
+              alt="down"
+              width="16"
+              height="16"
+              className={s.form_field_chevron}
+            />
+          ) : (
+            <img
+              src="/chevron-up.svg"
+              alt="down"
+              width="16"
+              height="16"
+              className={s.form_field_chevron}
+            />
+          )}
         </div>
 
         <div className={s.form_item}>
