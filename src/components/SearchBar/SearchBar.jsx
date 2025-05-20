@@ -11,7 +11,7 @@ import s from './SearchBar.module.css';
 const initialValues = {
   brand: '',
   rentalPrice: '',
-  minMileage: undefined,
+  minMileage: '',
   maxMileage: '',
 };
 

@@ -14,7 +14,6 @@ import s from './CarPage.module.css';
 
 export default function CarPage() {
   const { id } = useParams();
-  console.log('id', id);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -22,7 +21,6 @@ export default function CarPage() {
   }, [dispatch, id]);
 
   const car = useSelector(selectCar);
-  console.log('car in car page', car);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
