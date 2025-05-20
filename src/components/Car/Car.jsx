@@ -15,10 +15,8 @@ export default function Car({ carInfo }) {
     mileage.slice(0, length - 3) + ' ' + mileage.slice(length - 3, length);
 
   const favourites = useSelector(selectFavourites);
-  console.log('favourites', favourites);
 
   const isFavourite = favourites.includes(carInfo.id);
-  console.log('isFavourite', isFavourite);
 
   const dispatch = useDispatch();
   function toggleFavourite() {
