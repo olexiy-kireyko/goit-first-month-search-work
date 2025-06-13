@@ -7,6 +7,7 @@ import { selectBrands } from '../../redux/cars/selectors';
 import { getBrands, getFilteredCars } from '../../redux/cars/operations';
 import { changeFilters } from '../../redux/filters/slice';
 import s from './SearchBar.module.css';
+import ResetButton from '../ResetButton/ResetButton';
 
 const initialValues = {
   brand: '',
@@ -46,11 +47,6 @@ export default function SearchBar() {
   const minMileageFieldId = useId();
   const maxMileageFieldId = useId();
 
-  function handleSubmit(values) {
-    dispatch(changeFilters(values));
-    dispatch(getFilteredCars(values));
-  }
-
   const [checkBrand, setCheckBrand] = useState(false);
   const [checkPrice, setCheckPrice] = useState(false);
 
@@ -61,11 +57,24 @@ export default function SearchBar() {
     setCheckPrice(true);
   }
 
+  function handleSubmit(values) {
+    dispatch(changeFilters(values));
+    dispatch(getFilteredCars(values));
+  }
+
+  function handleReset() {
+    setCheckBrand(false);
+    setCheckPrice(false);
+    dispatch(changeFilters(initialValues));
+    dispatch(getFilteredCars(initialValues));
+  }
+
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
+      onReset={handleReset}
     >
       <Form className={s.form}>
         <div className={s.form_item}>
@@ -115,7 +124,7 @@ export default function SearchBar() {
           <label htmlFor={rentalPriceFieldId}>Price/ 1 hour</label>
           <Field
             as="select"
-            className={s.form_field}
+            className={`${s.form_field} ${s.price}`}
             name="rentalPrice"
             id={rentalPriceFieldId}
             onFocus={handleCheckedPrice}
@@ -130,13 +139,16 @@ export default function SearchBar() {
             <span className={s.form_field_brand}>Choose a price</span>
           )}
           {checkPrice ? (
-            <img
-              src="/chevron-down.svg"
-              alt="down"
-              width="16"
-              height="16"
-              className={s.form_field_chevron}
-            />
+            <>
+              <span className={s.form_field_price}>To $</span>
+              <img
+                src="/chevron-down.svg"
+                alt="down"
+                width="16"
+                height="16"
+                className={s.form_field_chevron}
+              />
+            </>
           ) : (
             <img
               src="/chevron-up.svg"
@@ -175,7 +187,10 @@ export default function SearchBar() {
           </div>
         </div>
 
-        <SecondaryButton text="search" />
+        <div className={s.button_block}>
+          <SecondaryButton text="Search" />
+          <ResetButton text="Reset" />
+        </div>
       </Form>
     </Formik>
   );

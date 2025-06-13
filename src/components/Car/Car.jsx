@@ -3,16 +3,14 @@ import MainButton from '../MainButton/MainButton';
 import s from './Car.module.css';
 import { selectFavourites } from '../../redux/favourites/selectors';
 import { changeFavourites } from '../../redux/favourites/slice';
+import mileage from '../../utils/mileage';
 
 export default function Car({ carInfo }) {
   const carCompanyAddr = carInfo.address.split(',');
   const carCompanyCity = carCompanyAddr[1];
   const carCompanyCountry = carCompanyAddr[2];
 
-  const mileage = String(carInfo.mileage);
-  const length = mileage.length;
-  const carMileage =
-    mileage.slice(0, length - 3) + ' ' + mileage.slice(length - 3, length);
+  const carMileage = mileage(carInfo.mileage);
 
   const favourites = useSelector(selectFavourites);
 
@@ -24,14 +22,14 @@ export default function Car({ carInfo }) {
   }
 
   return (
-    <div className={s.card}>
-      <div className={s.heart} onClick={toggleFavourite}>
+    <li className={s.card}>
+      <button className={s.heart} onClick={toggleFavourite}>
         {isFavourite ? (
           <img src="/heart-in-favor.svg" alt="heart" />
         ) : (
           <img src="/heart.svg" alt="heart" />
         )}
-      </div>
+      </button>
       <div className={s.img_wrapper}>
         <img src={carInfo.img} alt={carInfo.description} className={s.img} />
       </div>
@@ -59,6 +57,6 @@ export default function Car({ carInfo }) {
       <MainButton className={s.button} path={`/catalog/${carInfo.id}`}>
         Read More
       </MainButton>
-    </div>
+    </li>
   );
 }

@@ -3,6 +3,13 @@
   display: flex;
   gap: 72px;
   background-color: var(--white);
+  @media (max-width: 780px) {
+    padding: 40px 40px;
+    gap: 32px;
+  }
+  @media (max-width: 680px) {
+    flex-direction: column;
+  }
 }
 
 .first_column {
@@ -110,6 +117,9 @@
   line-height: 125%;
   color: var(--gray);
   align-self: last baseline;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 }
 .second_column_loc {
   font-family: var(--font-family);

@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import { useId } from 'react';
 import { SlLocationPin } from 'react-icons/sl';
 import SecondaryButton from '../SecondaryButton/SecondaryButton';
+import toast from 'react-hot-toast';
 
 import {
   BsCalendar2Week,
@@ -16,6 +17,15 @@ import {
 } from 'react-icons/bs';
 
 import DatepickerField from '../DatepickerField/DatepickerField';
+import mileage from '../../utils/mileage';
+
+const hotToastStyle = {
+  style: {
+    marginTop: '100px',
+    padding: '24px',
+    fontFamily: 'Arial, Helvetica, sans-serif',
+  },
+};
 
 const initialValues = { name: '', email: '', date: '', comment: '' };
 
@@ -26,10 +36,7 @@ export default function CarDetails() {
   const carCompanyCity = carCompanyAddr[1];
   const carCompanyCountry = carCompanyAddr[2];
 
-  const mileage = String(car.mileage);
-  const length = mileage.length;
-  const carMileage =
-    mileage.slice(0, length - 3) + ' ' + mileage.slice(length - 3, length);
+  const carMileage = mileage(car.mileage);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -37,7 +44,7 @@ export default function CarDetails() {
       .max(20, 'Too long!')
       .required('Required'),
     email: Yup.string().email('Must be valid email!').required('Required'),
-    date: Yup.date(),
+    date: Yup.array().of(Yup.date()),
     comment: Yup.string().min(2).max(20),
   });
 
@@ -46,9 +53,9 @@ export default function CarDetails() {
   const dateFieldId = useId();
   const commentFieldId = useId();
 
-  function handleSubmit(_, actions) {
+  function handleSubmit(values, actions) {
+    toast.success('Success booking!', hotToastStyle);
     actions.resetForm();
-    alert('success booking!');
   }
 
   return (

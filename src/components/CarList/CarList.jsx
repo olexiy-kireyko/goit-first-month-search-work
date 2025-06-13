@@ -22,12 +22,7 @@ export default function CarList() {
     return (
       <>
         <ul className={s.list}>
-          {cars &&
-            cars.map(item => (
-              <li key={item.id} className={s.list_item}>
-                <Car carInfo={item} />
-              </li>
-            ))}
+          {cars && cars.map(item => <Car key={item.id} carInfo={item} />)}
         </ul>
       </>
     );

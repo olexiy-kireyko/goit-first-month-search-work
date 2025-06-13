@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage.jsx'));
 const CarPage = lazy(() => import('./pages/CarPage/CarPage.jsx'));
@@ -18,6 +19,7 @@ function App() {
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        <Toaster />
       </Suspense>
     </>
   );
